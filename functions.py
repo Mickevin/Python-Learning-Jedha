@@ -60,33 +60,3 @@ class Voiture:
 
         except:
             print('There is no driver')
-
-
-def input_code_pin_user(password:str='0000') -> bool:
-    input_user = input('Please enter your password')
-
-    tentative = 3
-
-    while input_user != password and tentative > 0:
-
-        if input_user == 'exit':
-            return False
-
-        tentative -=1
-        print('Tentatives restantes : {}'.format(tentative))
-
-        try:
-            int(input_user)
-            print('Wrong Password')
-            input_user = input('Please enter your password')
-            
-        except:
-            print('Wrong input, please entre numbers')
-            input_user = input('Please enter your password')
-
-    if input_user == password:
-        print('Successful connection')
-        return True
-    else:
-        print('Connexion denied')
-        return False
